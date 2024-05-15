@@ -1,19 +1,19 @@
 #!/usr/bin/python3
 """A superclass"""
 
-from uuid import uuid4y
+from uuid import uuid4
 
 
 class BaseModel:
     """A super class"""
-    def __init__(self, *args, *kwargs):
+    def __init__(self, *args, **kwargs):
         "Instabtiates the class"""
         if kwargs:
             for key, value in kwargs.items():
                 if (key == "created_at") or (key == "updated_at"):
-                    value = datetime.strptime(value, %Y-%m-%dT%H:%M:%S.%f)
-                elif key == "__class__":
-                    value =
+                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                """elif key == "__class__":
+                    value ="""
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
@@ -21,7 +21,8 @@ class BaseModel:
 
     def __str__(self):
         """Returns a string reoresetation of the class"""
-        return ({[]} {()} {}.format(self.class.__name__, self.id, self.__dict__))
+        clsname = self.__class__.__name__
+        return "[{}] ({}) {}".format(clsname, self.id, self.__dict__)
 
     def save(self):
         """Updates updated_at with the current date"""
