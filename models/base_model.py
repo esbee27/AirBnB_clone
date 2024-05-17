@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python4
 """A superclass"""
 
 from uuid import uuid4
