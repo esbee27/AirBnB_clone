@@ -3,6 +3,7 @@
 
 import cmd
 from models.user import User
+import models
 
 class HBNBCommand(cmd.Cmd):
     """The command class that inherites from the imported cmd module"""

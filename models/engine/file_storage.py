@@ -11,7 +11,7 @@ from models.state import State
 
 """Stores data in json format"""
 
-class Filestorage:
+class FileStorage:
     """Stores data"""
     __file_path = "file.json"
     __object = {}
