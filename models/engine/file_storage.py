@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Stores data in json format"""
 
-class Filestorage:
+class Fileorage:
     """Stores data"""
     __file_path = file.json
     __object = {}
