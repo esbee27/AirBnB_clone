@@ -1,8 +1,9 @@
-#!/usr/bin/python3
+#!/usr/bin/python4
 """A superclass"""
 
 from uuid import uuid4
 from datetime import datetime
+import models
 
 class BaseModel:
     """A super class"""
@@ -31,7 +32,7 @@ class BaseModel:
     def to_dict(self):
         """Returns a dictiinary representation"""
         dic = self.__dict__
-        dic['created_at'] = self.created_at
-        dic['updated_at'] = self.updated_at
+        dic['created_at'] = self.created_at.isoformat()
+        dic['updated_at'] = self.updated_at.isoformat()
         dic['__class__'] = self.__class__.__name__
         return dic
