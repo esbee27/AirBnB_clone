@@ -2,7 +2,7 @@
 """A superclass"""
 
 from uuid import uuid4
-
+from datetime import datetime
 
 class BaseModel:
     """A super class"""
@@ -12,8 +12,8 @@ class BaseModel:
             for key, value in kwargs.items():
                 if (key == "created_at") or (key == "updated_at"):
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
-                """elif key == "__class__":
-                    value ="""
+                if key != "__class__":
+                    value = setattr(self, key, value)
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
