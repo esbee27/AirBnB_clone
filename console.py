@@ -12,13 +12,18 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, arg):
         """Handlesnendnof file"""
         return True
+
+
     def do_quit(self, arg):
         """Returns true when user exits"""
         return True
+
+
     def emptyline(self):
         """Executes nothing if nothing is passed"""
         pass
     
+
     def do_create(self, arg):
         """ New istance of user will be created,
         saved into engine, only id will be printed """
@@ -28,6 +33,7 @@ class HBNBCommand(cmd.Cmd):
             new_user = User()
             new_user.save()
             print(new_user.id)
+
 
     def do_show(self, arg):
         """Prints the string representation of an instance based on the class name and id"""
@@ -44,6 +50,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
             else:
                 print(models.storage.all()[key])
+
 
 
     def do_destroy(self, arg):
@@ -64,6 +71,7 @@ class HBNBCommand(cmd.Cmd):
                 models.storage.save()
 
 
+
     def do_all(self, arg):
         """Prints all string representations of all instances"""
         if arg and arg != "User":
@@ -71,6 +79,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             objects = models.storage.all()
             print([str(obj) for obj in objects.values()])
+
 
 
     def do_update(self, arg):
@@ -94,6 +103,7 @@ class HBNBCommand(cmd.Cmd):
                 obj = models.storage.all()[key]
                 setattr(obj, args[2], args[3])
                 obj.save()
+
 
 if __name__ == '__main__':
         HBNBCommand().cmdloop()
